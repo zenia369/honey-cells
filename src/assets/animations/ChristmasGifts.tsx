@@ -17,7 +17,7 @@ const ChristmasGifts: FC<ChristmasGiftsProps> = ({
         autoplay
         loop
         mode="normal"
-        src="/Animation - 1703692209069.lottie"
+        src="/honey-cells/Animation - 1703692209069.lottie"
         style={{
           width: "300px",
         }}

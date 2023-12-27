@@ -14,7 +14,7 @@ const ConfettiOne: FC<ConfettiOneProps> = ({ boxProps, lottiePlayer }) => {
         autoplay
         loop
         mode="normal"
-        src="/Animation - 1703705756033 - Confetti 1.lottie"
+        src="/honey-cells/Animation - 1703705756033 - Confetti 1.lottie"
         style={{
           width: "300px",
         }}

@@ -15,7 +15,7 @@ const ChristmasBall: FC<ChristmasBallProps> = ({ boxProps, lottiePlayer }) => {
           autoplay
           loop
           mode="normal"
-          src="/Animation - 1703688503766.lottie"
+          src="/honey-cells/Animation - 1703688503766.lottie"
           style={{
             width: "300px",
           }}

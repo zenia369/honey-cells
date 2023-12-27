@@ -15,7 +15,7 @@ const Snowman: FC<SnowmanProps> = ({ boxProps, lottiePlayer }) => {
           autoplay
           loop
           mode="normal"
-          src="/Animation - 1703692766211.lottie"
+          src="/honey-cells/Animation - 1703692766211.lottie"
           style={{
             width: "300px",
           }}
