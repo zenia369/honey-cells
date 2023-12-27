@@ -17,6 +17,7 @@
     "@fontsource/open-sans": "^5.0.20",
     "@fontsource/raleway": "^5.0.16",
     "framer-motion": "^10.16.16",
+    "gh-pages": "^6.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.1"
