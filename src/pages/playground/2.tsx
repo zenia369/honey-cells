@@ -12,11 +12,26 @@ import { ChangeEventHandler, useState } from "react";
 
 const QuestConfig = {
   nextRoute: "/playground/1/3",
-  steps: [null, "step one"],
-  answer: "two",
-  task: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,excepturi accusantium veritatis doloremque aliquam id maiores reprehenderit, voluptatum illum ex natus velit enim dolore, blanditiis voluptate inventore porro expedita? Aut!",
+  steps: [
+    null,
+    import.meta.env.VITE_STEP_TWO_1,
+    import.meta.env.VITE_STEP_TWO_2,
+    import.meta.env.VITE_STEP_TWO_3,
+    import.meta.env.VITE_STEP_TWO_4,
+  ],
+  answer: import.meta.env.VITE_ANSWER_TWO,
+  task: import.meta.env.VITE_QUESTION_TWO,
   validator: function <T = string>(value: T): boolean {
-    return value === this.answer;
+    const answer = (this.answer as string)
+      .split(",")
+      .map((st) => st.trim().toLowerCase());
+    const answers = (value as string)
+      .split(",")
+      .map((st) => st.trim().toLowerCase());
+
+    if (answers.length < 3) return false;
+
+    return answers.every((st) => answer.includes(st));
   },
 };
 
@@ -63,9 +78,7 @@ const PlaygroundTwo = () => {
         steps={QuestConfig.steps}
       >
         <Box as="p" mb={4} color="white">
-          Note! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
-          excep velit enim dolore, blanditiis voluptate inventore porro
-          expedita? Aut!
+          {import.meta.env.VITE_NOTE_TWO}
         </Box>
         <PlaygroundTwoContent />
       </Quest>
