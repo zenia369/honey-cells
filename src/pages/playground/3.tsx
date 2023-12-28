@@ -12,13 +12,29 @@ import { useQuestContext } from "../../context/Quest.context";
 
 const QuestConfig = {
   nextRoute: "/finish/1",
-  steps: [null, "step one"],
-  answer: "three",
-  task: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,excepturi accusantium veritatis doloremque aliquam id maiores reprehenderit, voluptatum illum ex natus velit enim dolore, blanditiis voluptate inventore porro expedita? Aut!",
+  steps: [
+    "як не поганий ресур рекомендую глянути на: https://kuryliak.tk/js/calc/morze.php",
+    import.meta.env.VITE_STEP_THREE_1,
+    import.meta.env.VITE_STEP_THREE_2,
+    import.meta.env.VITE_STEP_THREE_3,
+  ],
+  answer: import.meta.env.VITE_ANSWER_THREE,
+  task: import.meta.env.VITE_QUESTION_THREE,
   validator: function <T = string>(value: T): boolean {
-    return value === this.answer;
+    return (
+      (value as string)
+        .replaceAll(" ", "")
+        .split("")
+        .map((st) => st.toLowerCase())
+        .join("") ===
+      (this.answer as string)
+        .replaceAll(" ", "")
+        .split("")
+        .map((st) => st.toLowerCase())
+        .join("")
+    );
   },
-  secretString: "- -.--  -. . .--- -- --- .-- .. .-. -. .-", //ТИ НЕЙМОВІРНА //https://kuryliak.tk/js/calc/morze.php
+  secretString: import.meta.env.VITE_SECRET_STRING as string,
 };
 
 const Player = () => {
@@ -103,7 +119,7 @@ const Player = () => {
   );
 };
 
-const PlaygroundFourContent = () => {
+const PlaygroundThreeContent = () => {
   const { validateAnswer, curentStep } = useQuestContext();
   const [value, setValue] = useState("");
   const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -131,7 +147,7 @@ const PlaygroundFourContent = () => {
         <Button colorScheme="green" onClick={handleClick}>
           Перевірити!
         </Button>
-        <div>{curentStep}</div>
+        <Box color="white">{curentStep}</Box>
       </Stack>
     </>
   );
@@ -147,11 +163,9 @@ const PlaygroundThree = () => {
         steps={QuestConfig.steps}
       >
         <Box as="p" mb={4} color="white">
-          Note! 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
-          excep velit enim dolore, blanditiis voluptate inventore porro
-          expedita? Aut!
+          {import.meta.env.VITE_NOTE_THREE}
         </Box>
-        <PlaygroundFourContent />
+        <PlaygroundThreeContent />
       </Quest>
     </Container>
   );
