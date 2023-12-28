@@ -6,17 +6,26 @@ import {
   Input,
   Stack,
 } from "@chakra-ui/react";
-import Quest from "../../components/Quest";
 import { ChangeEventHandler, useState } from "react";
+import Quest from "../../components/Quest";
 import { useQuestContext } from "../../context/Quest.context";
 
 const QuestConfig = {
   nextRoute: "/playground/1/2",
-  steps: [null, "step one"],
-  answer: "two",
-  task: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,excepturi accusantium veritatis doloremque aliquam id maiores reprehenderit, voluptatum illum ex natus velit enim dolore, blanditiis voluptate inventore porro expedita? Aut!",
+  steps: [
+    null,
+    import.meta.env.VITE_STEP_ONE_1,
+    import.meta.env.VITE_STEP_ONE_2,
+    import.meta.env.VITE_STEP_ONE_3,
+    import.meta.env.VITE_STEP_ONE_4,
+  ],
+  answer: import.meta.env.VITE_ANSWER_ONE,
+  task: import.meta.env.VITE_QUESTION_ONE,
   validator: function <T = string>(value: T): boolean {
-    return value === this.answer;
+    return (
+      (value as string).replaceAll('"', "").replaceAll(" ", "") ===
+      this.answer.replaceAll('"', "").replaceAll(" ", "")
+    );
   },
 };
 
@@ -63,9 +72,7 @@ const PlaygroundOne = () => {
         steps={QuestConfig.steps}
       >
         <Box as="p" mb={4} color="white">
-          Note! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
-          excep velit enim dolore, blanditiis voluptate inventore porro
-          expedita? Aut!
+          {import.meta.env.VITE_NOTE_ONE}
         </Box>
         <PlaygroundOneContent />
       </Quest>
