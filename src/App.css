@@ -2,6 +2,7 @@ body {
   background-color: rgb(33, 35, 46) !important;
   background-image: url("../src/assets/images/snow-small-dark.svg") !important;
   animation: snow_animation 20s linear infinite;
+  overflow-x: hidden;
 }
 
 @keyframes snow_animation {

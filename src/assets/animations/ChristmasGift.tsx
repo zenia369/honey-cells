@@ -1,5 +1,6 @@
 import { Box, BoxProps, Tooltip } from "@chakra-ui/react";
 import { PlaybackOptions } from "@dotlottie/player-component";
+import { motion } from "framer-motion";
 import { CSSProperties, FC } from "react";
 
 interface ChristmasGiftProps {
@@ -9,7 +10,18 @@ interface ChristmasGiftProps {
 
 const ChristmasGift: FC<ChristmasGiftProps> = ({ boxProps, lottiePlayer }) => {
   return (
-    <Box {...boxProps}>
+    <Box
+      {...boxProps}
+      as={motion.div}
+      initial={{
+        opacity: 0,
+        x: -400,
+      }}
+      animate={{
+        opacity: 1,
+        x: 0,
+      }}
+    >
       <Tooltip label="Подарунок...">
         <dotlottie-player
           autoplay

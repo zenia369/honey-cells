@@ -1,6 +1,7 @@
 import { Box, BoxProps, Tooltip } from "@chakra-ui/react";
 import { PlaybackOptions } from "@dotlottie/player-component";
 import { CSSProperties, FC } from "react";
+import { motion } from "framer-motion";
 
 interface SnowmanProps {
   lottiePlayer?: { style: CSSProperties } & PlaybackOptions;
@@ -9,7 +10,21 @@ interface SnowmanProps {
 
 const Snowman: FC<SnowmanProps> = ({ boxProps, lottiePlayer }) => {
   return (
-    <Box {...boxProps}>
+    <Box
+      {...boxProps}
+      as={motion.div}
+      initial={{
+        opacity: 0,
+        x: 400,
+      }}
+      animate={{
+        opacity: 1,
+        x: 0,
+      }}
+      whileHover={{
+        scale: 1.1,
+      }}
+    >
       <Tooltip label="Я сніговик, привіт">
         <dotlottie-player
           autoplay

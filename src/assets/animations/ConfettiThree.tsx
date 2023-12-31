@@ -9,14 +9,23 @@ interface ConfettiThreeProps {
 
 const ConfettiThree: FC<ConfettiThreeProps> = ({ boxProps, lottiePlayer }) => {
   return (
-    <Box {...boxProps}>
+    <Box
+      {...boxProps}
+      position="fixed"
+      top={0}
+      bottom={0}
+      left={0}
+      right={0}
+      transform="scale(2.2)"
+    >
       <dotlottie-player
         autoplay
         loop
         mode="normal"
         src="/honey-cells/Animation - 1703705756033 - Confetti 3.lottie"
         style={{
-          width: "300px",
+          width: "100%",
+          height: "100%",
         }}
         {...lottiePlayer}
       />

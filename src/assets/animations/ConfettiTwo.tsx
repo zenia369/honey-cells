@@ -9,14 +9,15 @@ interface ConfettiTwoProps {
 
 const ConfettiTwo: FC<ConfettiTwoProps> = ({ boxProps, lottiePlayer }) => {
   return (
-    <Box {...boxProps}>
+    <Box {...boxProps} position="fixed" top={0} bottom={0} left={0} right={0}>
       <dotlottie-player
         autoplay
         loop
         mode="normal"
-        src="/honey-cells/Animation - 1703705756033 - Confetti 2.lottie"
+        src="/honey-cells/Animation - 1703705677714 - Confetti 2.lottie"
         style={{
-          width: "300px",
+          width: "100%",
+          height: "100%",
         }}
         {...lottiePlayer}
       />
